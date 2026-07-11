@@ -7,215 +7,125 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>Admin Panel | Schneiders Taverne</title>
-
+<title>Admin Dashboard | Schneiders Taverne & Bar</title>
 
 <link rel="stylesheet" href="css/admin.css">
 
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap"
-rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
 
 </head>
 
-
 <body>
 
+<header class="topbar">
 
-<header class="admin-header">
+    <h1>🍺 Schneiders Admin</h1>
 
-
-    <div class="admin-logo">
-
-        🍺 Schneiders Admin
-
-    </div>
-
-
-    <button id="logout">
-
-        Abmelden
-
-    </button>
-
+    <button id="logout">Abmelden</button>
 
 </header>
 
+<main class="container">
 
+<section class="stats">
 
-<main class="dashboard">
+<div class="card">
 
+<h2 id="itemCount">0</h2>
 
-    <h1>
+<p>Produkte</p>
 
-        Admin Dashboard
+</div>
 
-    </h1>
+<div class="card">
 
+<h2 id="categoryCount">0</h2>
 
-    <p>
+<p>Kategorien</p>
 
-        Verwalte hier deine Speisekarte.
+</div>
 
-    </p>
+</section>
 
+<section class="editor">
 
+<h2>➕ Produkt hinzufügen</h2>
 
+<input
+type="text"
+id="productName"
+placeholder="Produktname">
 
-    <!-- Statistik -->
-
-
-    <section class="stats">
-
-
-        <div class="stat-box">
-
-            <h2 id="categoryCount">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Kategorien
-
-            </p>
-
-        </div>
-
-
-
-        <div class="stat-box">
-
-            <h2 id="itemCount">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Produkte
-
-            </p>
-
-        </div>
-
-
-
-    </section>
-
-
-
-
-
-
-    <!-- Neues Produkt -->
-
-
-    <section class="admin-card">
-
-
-        <h2>
-
-            ➕ Produkt hinzufügen
-
-        </h2>
-
-
-
-        <input 
-        id="productName"
-        type="text"
-        placeholder="Name des Produkts">
-
-
-
-        <input 
-        id="productPrice"
-        type="number"
-        placeholder="Preis in Euro">
-
-
+<input
+type="number"
+step="0.01"
+id="productPrice"
+placeholder="Preis">
 
 <select id="productCategory">
 
-    <option value="Alkoholfrei">🥤 Alkoholfreie Getränke</option>
+<option>Alkoholfreie Getränke</option>
 
-    <option value="Spaßgetränke">🍹 Spaßgetränke</option>
+<option>Spaßgetränke</option>
 
-    <option value="Bier">🍺 Bier</option>
+<option>Bier</option>
 
-    <option value="Cocktails">🍸 Cocktails</option>
+<option>Cocktails</option>
 
-    <option value="Spirituosen">🥃 Spirituosen</option>
+<option>Spirituosen</option>
 
-    <option value="Wein">🍷 Wein</option>
+<option>Wein</option>
 
-    <option value="Warme Speisen">🍔 Warme Speisen</option>
+<option>Warme Speisen</option>
 
-    <option value="Snacks">🍟 Snacks</option>
+<option>Snacks</option>
 
-    <option value="Desserts">🍰 Desserts</option>
+<option>Desserts</option>
 
 </select>
 
+<button id="saveProduct">
 
+💾 Produkt speichern
 
-        <button id="addProduct">
+</button>
 
+</section>
 
-            Produkt speichern
+    <section class="products">
 
+    <div class="products-header">
 
-        </button>
+        <h2>📋 Produkte verwalten</h2>
 
+        <input
+            type="text"
+            id="searchProduct"
+            placeholder="🔍 Produkt suchen...">
 
+    </div>
 
-    </section>
+    <!-- Hier werden später automatisch alle Kategorien eingefügt -->
+    <div id="productsContainer">
 
+        <p class="loading">
+            Produkte werden geladen...
+        </p>
 
+    </div>
 
-
-
-
-    <!-- Produkte Liste -->
-
-
-    <section class="admin-card">
-
-
-        <h2>
-
-            📜 Speisekarte verwalten
-
-        </h2>
-
-
-
-        <div id="productList">
-
-
-            <!-- Produkte werden automatisch eingefügt -->
-
-
-        </div>
-
-
-    </section>
-
-
+</section>
 
 </main>
 
+<footer>
 
+    © 2026 Schneiders Taverne & Bar – Admin Dashboard
 
+</footer>
+
+<script type="module" src="js/auth.js"></script>
 <script type="module" src="js/admin.js"></script>
 
-
 </body>
-
 </html>
