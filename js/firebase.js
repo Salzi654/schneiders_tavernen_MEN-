@@ -4,18 +4,6 @@
 ===================================================== */
 
 
-/*
-    HIER SPÄTER DEINE FIREBASE DATEN EINFÜGEN
-
-    Firebase Console:
-    https://console.firebase.google.com/
-
-    Projekt erstellen
-    → Web-App hinzufügen
-    → Config kopieren
-*/
-
-
 import { initializeApp } from 
 "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 
@@ -30,30 +18,24 @@ import { getFirestore } from
 
 
 
-// Deine Firebase Konfiguration
+// Firebase Konfiguration
 
 const firebaseConfig = {
 
+    apiKey: "AIzaSyDNoGirp_RbjN3LXRloU_nCfXW06ZEkThY",
 
-    apiKey: "DEIN_API_KEY",
+    authDomain: "schneiders-taverne.firebaseapp.com",
 
+    projectId: "schneiders-taverne",
 
-    authDomain: "DEIN_PROJEKT.firebaseapp.com",
+    storageBucket: "schneiders-taverne.firebasestorage.app",
 
+    messagingSenderId: "499080395114",
 
-    projectId: "DEIN_PROJEKT_ID",
-
-
-    storageBucket: "DEIN_PROJEKT.firebasestorage.app",
-
-
-    messagingSenderId: "DEINE_SENDER_ID",
-
-
-    appId: "DEINE_APP_ID"
-
+    appId: "1:499080395114:web:fcaa0c94d8fc57e0324d13"
 
 };
+
 
 
 
@@ -63,7 +45,7 @@ const app = initializeApp(firebaseConfig);
 
 
 
-// Login System
+// Login
 
 const auth = getAuth(app);
 
