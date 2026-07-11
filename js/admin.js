@@ -1,5 +1,6 @@
 /* =====================================================
    Schneiders Taverne & Bar
+   Admin Dashboard
    admin.js
 ===================================================== */
 
@@ -10,11 +11,11 @@ import { db } from "./firebase.js";
 import {
 
     collection,
-    addDoc,
     getDocs,
+    addDoc,
     deleteDoc,
-    doc,
-    updateDoc
+    updateDoc,
+    doc
 
 } from 
 "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
@@ -26,24 +27,28 @@ import {
 ========================== */
 
 
-const productName =
+const nameInput =
 document.getElementById("productName");
 
 
-const productPrice =
+const priceInput =
 document.getElementById("productPrice");
 
 
-const productCategory =
+const categoryInput =
 document.getElementById("productCategory");
 
 
-const addButton =
-document.getElementById("addProduct");
+const saveButton =
+document.getElementById("saveProduct");
 
 
-const productList =
-document.getElementById("productList");
+const productsContainer =
+document.getElementById("productsContainer");
+
+
+const searchInput =
+document.getElementById("searchProduct");
 
 
 
@@ -51,74 +56,16 @@ const itemCount =
 document.getElementById("itemCount");
 
 
+const categoryCount =
+document.getElementById("categoryCount");
 
 
 
-/* ==========================
-   Produkt hinzufügen
-========================== */
-
-
-if(addButton){
-
-
-addButton.addEventListener("click", async ()=>{
-
-
-    const name =
-    productName.value;
-
-
-    const price =
-    productPrice.value;
-
-
-    const category =
-    productCategory.value;
+let editID = null;
 
 
 
-    if(!name || !price){
-
-        alert("Bitte Name und Preis eingeben");
-
-        return;
-
-    }
-
-
-
-    await addDoc(
-
-        collection(db,"products"),
-
-        {
-
-            name:name,
-
-            price:Number(price),
-
-            category:category
-
-        }
-
-    );
-
-
-
-    productName.value="";
-
-    productPrice.value="";
-
-
-
-    loadProducts();
-
-
-
-});
-
-}
+let allProducts = [];
 
 
 
@@ -130,80 +77,78 @@ addButton.addEventListener("click", async ()=>{
 async function loadProducts(){
 
 
-    if(!productList) return;
+    productsContainer.innerHTML =
+    "Produkte werden geladen...";
 
 
 
-    productList.innerHTML="";
+    const snapshot = await getDocs(
 
-
-
-    const snapshot =
-    await getDocs(
         collection(db,"products")
+
     );
 
 
 
-    let count=0;
+    allProducts = [];
 
 
 
-    snapshot.forEach((data)=>{
+    snapshot.forEach((item)=>{
 
 
-        count++;
+        allProducts.push({
+
+            id:item.id,
+
+            ...item.data()
+
+        });
 
 
-        const product =
-        data.data();
-
-
-
-        const id =
-        data.id;
-
-
-
-        const div =
-        document.createElement("div");
+    });
 
 
 
-        div.className="product";
+    updateStats();
+
+
+    displayProducts(allProducts);
+
+
+}
 
 
 
-        div.innerHTML=`
 
-            <div>
-
-                <strong>${product.name}</strong>
-
-                <br>
-
-                <span>
-                ${product.category}
-                </span>
-
-                <br>
-
-                ${product.price.toFixed(2)} €
-
-            </div>
+/* ==========================
+   Anzeigen
+========================== */
 
 
-            <button onclick="deleteProduct('${id}')">
+function displayProducts(products){
 
-                Löschen
 
-            </button>
-
-        `;
+    productsContainer.innerHTML="";
 
 
 
-        productList.appendChild(div);
+    let categories = {};
+
+
+
+    products.forEach(product=>{
+
+
+        if(!categories[product.category]){
+
+
+            categories[product.category]=[];
+
+        }
+
+
+        categories[product.category].push(product);
 
 
 
@@ -211,15 +156,244 @@ async function loadProducts(){
 
 
 
-    if(itemCount){
+    Object.keys(categories).forEach(category=>{
 
-        itemCount.innerHTML=count;
+
+        const categoryBox =
+        document.createElement("div");
+
+
+        categoryBox.className =
+        "category-box";
+
+
+
+        categoryBox.innerHTML = `
+
+            <div class="category-title">
+
+                ${category}
+
+            </div>
+
+
+            <div class="category-products">
+
+            </div>
+
+        `;
+
+
+
+        const list =
+        categoryBox.querySelector(
+            ".category-products"
+        );
+
+
+
+        categories[category].forEach(product=>{
+
+
+            const item =
+            document.createElement("div");
+
+
+            item.className =
+            "product-item";
+
+
+
+            item.innerHTML = `
+
+                <div class="product-info">
+
+                    <h3>${product.name}</h3>
+
+                    <span>
+
+                    ${Number(product.price).toFixed(2)} €
+
+                    </span>
+
+                </div>
+
+
+                <div class="product-actions">
+
+
+                    <button 
+                    class="edit-btn"
+                    onclick="editProduct('${product.id}')">
+
+                    ✏️ Bearbeiten
+
+                    </button>
+
+
+                    <button
+                    class="delete-btn"
+                    onclick="deleteProduct('${product.id}')">
+
+                    🗑️ Löschen
+
+                    </button>
+
+
+                </div>
+
+            `;
+
+
+
+            list.appendChild(item);
+
+
+        });
+
+
+
+        productsContainer.appendChild(categoryBox);
+
+
+
+    });
+
+
+}
+
+/* ==========================
+   Produkt speichern
+========================== */
+
+
+saveButton.addEventListener("click", async ()=>{
+
+
+    const name =
+    nameInput.value.trim();
+
+
+    const price =
+    Number(priceInput.value);
+
+
+    const category =
+    categoryInput.value;
+
+
+
+    if(!name || !price){
+
+
+        alert(
+            "Bitte Name und Preis eingeben!"
+        );
+
+
+        return;
 
     }
 
 
 
-}
+    try{
+
+
+        // Neues Produkt
+
+        if(editID === null){
+
+
+            await addDoc(
+
+                collection(db,"products"),
+
+                {
+
+                    name:name,
+
+                    price:price,
+
+                    category:category
+
+                }
+
+            );
+
+
+        }
+
+
+        // Produkt bearbeiten
+
+        else{
+
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "products",
+                    editID
+                ),
+
+                {
+
+                    name:name,
+
+                    price:price,
+
+                    category:category
+
+                }
+
+            );
+
+
+
+            editID=null;
+
+
+            saveButton.innerHTML =
+            "💾 Produkt speichern";
+
+
+        }
+
+
+
+
+        nameInput.value="";
+
+        priceInput.value="";
+
+
+
+        loadProducts();
+
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(error);
+
+
+        alert(
+            "Fehler beim Speichern!"
+        );
+
+
+    }
+
+
+
+});
+
 
 
 
@@ -232,14 +406,14 @@ async function loadProducts(){
 window.deleteProduct = async function(id){
 
 
-    const confirmDelete =
-    confirm(
-        "Produkt wirklich löschen?"
-    );
+    if(!confirm(
+        "Möchtest du dieses Produkt löschen?"
+    )){
 
 
-    if(!confirmDelete)
         return;
+
+    }
 
 
 
@@ -260,6 +434,168 @@ window.deleteProduct = async function(id){
 
 
 };
+
+
+
+
+
+/* ==========================
+   Produkt bearbeiten
+========================== */
+
+
+window.editProduct = function(id){
+
+
+    const product =
+    allProducts.find(
+        item=>item.id===id
+    );
+
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+
+    nameInput.value =
+    product.name;
+
+
+
+    priceInput.value =
+    product.price;
+
+
+
+    categoryInput.value =
+    product.category;
+
+
+
+    editID=id;
+
+
+
+    saveButton.innerHTML =
+    "✏️ Änderungen speichern";
+
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+
+};
+
+
+
+
+
+/* ==========================
+   Suche
+========================== */
+
+
+searchInput.addEventListener(
+"input",
+()=>{
+
+
+    const search =
+    searchInput.value.toLowerCase();
+
+
+
+    const filtered =
+    allProducts.filter(product=>{
+
+
+        return (
+
+            product.name
+            .toLowerCase()
+            .includes(search)
+
+            ||
+
+            product.category
+            .toLowerCase()
+            .includes(search)
+
+        );
+
+
+    });
+
+
+
+    displayProducts(filtered);
+
+
+
+});
+
+
+
+
+
+/* ==========================
+   Statistik
+========================== */
+
+
+function updateStats(){
+
+
+    if(itemCount){
+
+
+        itemCount.innerHTML =
+        allProducts.length;
+
+
+    }
+
+
+
+    if(categoryCount){
+
+
+        const categories =
+        new Set();
+
+
+        allProducts.forEach(product=>{
+
+
+            categories.add(
+                product.category
+            );
+
+
+        });
+
+
+
+        categoryCount.innerHTML =
+        categories.size;
+
+
+    }
+
+
+}
+
 
 
 
