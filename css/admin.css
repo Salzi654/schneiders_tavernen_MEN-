@@ -1,0 +1,396 @@
+/* =====================================================
+   Schneiders Taverne & Bar
+   admin.css
+===================================================== */
+
+
+/* ==========================
+   Grunddesign
+========================== */
+
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:'Poppins',sans-serif;
+
+    background:#121212;
+
+    color:white;
+
+}
+
+
+
+/* ==========================
+   Header
+========================== */
+
+
+.admin-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 8%;
+
+    background:#181818;
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+.admin-logo{
+
+    font-family:'Cinzel',serif;
+
+    font-size:2rem;
+
+    color:#c89b3c;
+
+}
+
+
+
+.admin-header button{
+
+    background:#c89b3c;
+
+    color:#111;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.admin-header button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 10px 20px rgba(200,155,60,.3);
+
+}
+
+
+
+/* ==========================
+   Dashboard
+========================== */
+
+
+.dashboard{
+
+    padding:50px 8%;
+
+}
+
+
+
+.dashboard h1{
+
+    font-family:'Cinzel',serif;
+
+    color:#c89b3c;
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.dashboard>p{
+
+    color:#ccc;
+
+    margin-bottom:40px;
+
+}
+
+
+
+/* ==========================
+   Statistik
+========================== */
+
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.stat-box{
+
+    background:#222;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+.stat-box h2{
+
+    color:#c89b3c;
+
+    font-size:3rem;
+
+}
+
+
+
+/* ==========================
+   Karten
+========================== */
+
+
+.admin-card{
+
+    background:#202020;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    margin-bottom:30px;
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+.admin-card h2{
+
+    color:#c89b3c;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* ==========================
+   Eingaben
+========================== */
+
+
+.admin-card input,
+
+.admin-card select{
+
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    background:#303030;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+
+
+.admin-card input:focus,
+
+.admin-card select:focus{
+
+    box-shadow:
+
+    0 0 15px rgba(200,155,60,.4);
+
+}
+
+
+
+/* Buttons */
+
+
+.admin-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#c89b3c;
+
+    color:#111;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.admin-card button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* ==========================
+   Produktliste
+========================== */
+
+
+.product{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:#292929;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.product span{
+
+    color:#c89b3c;
+
+    font-weight:bold;
+
+}
+
+
+
+.product button{
+
+    width:auto;
+
+    padding:8px 15px;
+
+    background:#a83232;
+
+    color:white;
+
+}
+
+
+
+/* Handy */
+
+@media(max-width:700px){
+
+
+    .admin-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+
+
+    .dashboard{
+
+        padding:30px 5%;
+
+    }
+
+
+
+    .dashboard h1{
+
+        font-size:2rem;
+
+    }
+
+
+
+    .product{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+
+}
