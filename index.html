@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang='de'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Spielprojekt</title><style>
+body{margin:0;font-family:Arial;background:#111;color:#fff}
+header,footer{background:#1b4fd1;padding:15px;text-align:center}
+nav{background:#222;padding:10px}nav a{color:#fff;margin:0 10px;text-decoration:none}
+.page{display:none;padding:25px;max-width:1000px;margin:auto}
+.page.active{display:block}
+img{max-width:100%;border-radius:8px}
+footer a{color:#fff}
+</style>
+<script>
+function show(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+window.onload=()=>show('home');
+</script></head><body>
+<header><h1>Unser Spielprojekt</h1></header>
+<nav>
+<a href="#" onclick="show('home')">Hauptseite</a>
+<a href="#" onclick="show('herstellung')">Herstellung</a>
+<a href="#" onclick="show('autoren')">Autoren</a>
+<a href="#" onclick="show('anleitung')">Spielanleitung</a>
+</nav>
+<div id='home' class='page'><h2>Hauptseite</h2><p>Projektvorstellung.</p><img src='bilder/projekt.jpg'><p><img src='bilder/klasse.jpg'></p></div>
+<div id='herstellung' class='page'><h2>Herstellung</h2><p>Bilder und Geschichte hier einfügen.</p></div>
+<div id='autoren' class='page'><h2>Autoren</h2><p>Schüler und Lehrkräfte eintragen.</p></div>
+<div id='anleitung' class='page'><h2>Spielanleitung</h2><p>Hier deine Anleitung.</p></div>
+<div id='about' class='page'><h2>Über den Website-Hersteller</h2><p><b>Aaron Guil Arcos</b></p><p>Programmierer und Ersteller dieser Website. Hier kannst du später Informationen über dich, deine Projekte und Kontaktmöglichkeiten ergänzen.</p></div>
+<footer><a href="#" onclick="show('about')">Programmiert von Aaron Guil Arcos</a></footer>
+</body></html>
