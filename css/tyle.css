@@ -1,0 +1,1086 @@
+/* =====================================================
+   Schneiders Taverne & Bar
+   style.css - Teil 1
+===================================================== */
+
+
+/* ==========================
+   Grunddesign
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#121212;
+
+    color:white;
+
+    line-height:1.6;
+
+}
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#1a1a1a;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#c89b3c;
+
+    border-radius:10px;
+
+}
+
+
+/* Überschriften */
+
+h1,
+h2,
+h3{
+
+    font-family:'Cinzel',serif;
+
+}
+
+
+/* Links */
+
+a{
+
+    text-decoration:none;
+
+    color:white;
+
+}
+
+
+/* ==========================
+   Navigation
+========================== */
+
+
+header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(10,10,10,0.85);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,0.1);
+
+}
+
+
+
+.navbar{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 40px;
+
+}
+
+
+
+.logo{
+
+    font-size:2rem;
+
+    font-family:'Cinzel',serif;
+
+    font-weight:bold;
+
+    color:#c89b3c;
+
+}
+
+
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:30px;
+
+}
+
+
+
+.nav-links a{
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+
+.nav-links a:hover{
+
+    color:#c89b3c;
+
+}
+
+
+
+.admin-btn{
+
+    background:#c89b3c;
+
+    color:#111!important;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+}
+
+
+
+.admin-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(200,155,60,.4);
+
+}
+
+
+
+.menu-btn{
+
+    display:none;
+
+    font-size:28px;
+
+}
+
+
+/* ==========================
+   Hero Bereich
+========================== */
+
+
+.hero{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.65)
+    ),
+
+    url("../images/hero.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+
+
+.hero-content{
+
+    position:relative;
+
+    max-width:900px;
+
+    padding:20px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.hero h1 span{
+
+    color:#c89b3c;
+
+}
+
+
+
+.hero p{
+
+    font-size:1.2rem;
+
+    color:#ddd;
+
+    margin-bottom:35px;
+
+}
+
+
+
+/* Buttons */
+
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.btn{
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.btn.gold{
+
+    background:#c89b3c;
+
+    color:#111;
+
+}
+
+
+
+.btn.gold:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 30px rgba(200,155,60,.5);
+
+}
+
+
+
+.btn.transparent{
+
+    border:2px solid white;
+
+}
+
+
+
+.btn.transparent:hover{
+
+    background:white;
+
+    color:#111;
+
+}
+
+/* =====================================================
+   style.css - Teil 2
+===================================================== */
+
+
+/* ==========================
+   Allgemeine Sections
+========================== */
+
+section{
+
+    padding:100px 8%;
+
+}
+
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+
+.section-title h2{
+
+    font-size:3rem;
+
+    color:#c89b3c;
+
+    margin-bottom:15px;
+
+}
+
+
+.section-title p{
+
+    color:#ccc;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+/* ==========================
+   Highlights
+========================== */
+
+
+.highlights{
+
+    background:#181818;
+
+}
+
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+.card{
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #252525,
+        #171717
+    );
+
+
+    padding:40px 30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#c89b3c;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.5);
+
+}
+
+
+
+.card i{
+
+    font-size:55px;
+
+    color:#c89b3c;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.card h3{
+
+    margin-bottom:15px;
+
+    font-size:1.6rem;
+
+}
+
+
+
+.card p{
+
+    color:#ccc;
+
+}
+
+
+/* ==========================
+   Bier des Monats
+========================== */
+
+
+.beer-month{
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.7),
+        rgba(0,0,0,.7)
+    ),
+
+    url("../images/beer.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    text-align:center;
+
+}
+
+
+
+.beer-box{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:rgba(0,0,0,.5);
+
+    padding:50px;
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+}
+
+
+
+.beer-box h2{
+
+    color:#c89b3c;
+
+    font-size:2.5rem;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.beer-box h3{
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* ==========================
+   Speisekarte
+========================== */
+
+
+.menu{
+
+    background:#121212;
+
+}
+
+
+
+.search{
+
+    max-width:700px;
+
+    margin:0 auto 40px;
+
+}
+
+
+
+.search input{
+
+    width:100%;
+
+    padding:18px 25px;
+
+    border-radius:15px;
+
+    border:none;
+
+    outline:none;
+
+    background:#242424;
+
+    color:white;
+
+    font-size:17px;
+
+}
+
+
+
+.search input:focus{
+
+    box-shadow:
+
+    0 0 20px rgba(200,155,60,.4);
+
+}
+
+
+
+/* Kategorien */
+
+
+.category{
+
+    max-width:1000px;
+
+    margin:20px auto;
+
+    background:#202020;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+.category summary{
+
+    cursor:pointer;
+
+    list-style:none;
+
+    padding:25px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    background:#292929;
+
+    transition:.3s;
+
+}
+
+
+
+.category summary:hover{
+
+    color:#c89b3c;
+
+    background:#333;
+
+}
+
+
+
+.category summary::-webkit-details-marker{
+
+    display:none;
+
+}
+
+
+
+/* Getränke und Speisen */
+
+
+.item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:18px 25px;
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.item:hover{
+
+    background:#2b2b2b;
+
+}
+
+
+
+.item span:last-child{
+
+    color:#c89b3c;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Animation */
+
+.category{
+
+    animation:
+
+    fadeIn .5s ease;
+
+}
+
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =====================================================
+   style.css - Teil 3
+===================================================== */
+
+
+/* ==========================
+   Über Uns
+========================== */
+
+.about{
+
+    background:#1a1a1a;
+
+    text-align:center;
+
+}
+
+
+.about .section-title{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+/* ==========================
+   Kontakt
+========================== */
+
+
+.contact{
+
+    background:#121212;
+
+}
+
+
+
+.contact-box{
+
+    max-width:700px;
+
+    margin:auto;
+
+    background:#222;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+.contact-box p{
+
+    margin-bottom:15px;
+
+    color:#ddd;
+
+}
+
+
+
+.contact-box strong{
+
+    color:#c89b3c;
+
+}
+
+
+
+.contact-box ul{
+
+    margin-top:10px;
+
+    padding-left:20px;
+
+}
+
+
+
+.contact-box li{
+
+    margin-bottom:8px;
+
+    color:#ddd;
+
+}
+
+
+/* ==========================
+   Footer
+========================== */
+
+
+footer{
+
+    background:#080808;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    border-top:
+
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+
+footer h3{
+
+    color:#c89b3c;
+
+    font-size:1.8rem;
+
+    margin-bottom:15px;
+
+}
+
+
+
+footer p{
+
+    color:#aaa;
+
+}
+
+
+
+/* ==========================
+   Mobile Design
+========================== */
+
+
+@media(max-width:900px){
+
+
+    .navbar{
+
+        padding:20px;
+
+    }
+
+
+    .nav-links{
+
+        position:absolute;
+
+        top:80px;
+
+        left:0;
+
+        width:100%;
+
+        background:#111;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        padding:30px;
+
+        display:none;
+
+    }
+
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+
+    .menu-btn{
+
+        display:block;
+
+        color:#c89b3c;
+
+    }
+
+
+
+    .hero h1{
+
+        font-size:2.5rem;
+
+    }
+
+
+
+    .hero p{
+
+        font-size:1rem;
+
+    }
+
+
+
+    .section-title h2{
+
+        font-size:2.2rem;
+
+    }
+
+
+
+    .card{
+
+        padding:30px 20px;
+
+    }
+
+
+
+    .beer-box{
+
+        padding:30px 20px;
+
+    }
+
+
+
+}
+
+
+
+@media(max-width:500px){
+
+
+    section{
+
+        padding:70px 5%;
+
+    }
+
+
+    .logo{
+
+        font-size:1.5rem;
+
+    }
+
+
+    .hero h1{
+
+        font-size:2rem;
+
+    }
+
+
+    .btn{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+
+    .category summary{
+
+        font-size:18px;
+
+        padding:20px;
+
+    }
+
+
+    .item{
+
+        padding:15px;
+
+        font-size:15px;
+
+    }
+
+
+}
+
+
+
+/* ==========================
+   Extra Effekte
+========================== */
+
+
+::selection{
+
+    background:#c89b3c;
+
+    color:#111;
+
+}
+
+
+
+.card,
+.category,
+.beer-box,
+.contact-box{
+
+    backdrop-filter:blur(8px);
+
+}
+
+
+
+.btn{
+
+    cursor:pointer;
+
+}
+
+
+
+button{
+
+    font-family:inherit;
+
+}
