@@ -1,0 +1,321 @@
+/* =====================================================
+   Schneiders Taverne & Bar
+   login.css
+===================================================== */
+
+
+/* ==========================
+   Grunddesign
+========================== */
+
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.75)
+    ),
+
+    url("../images/hero.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
+}
+
+
+
+/* ==========================
+   Login Box
+========================== */
+
+
+.login-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+
+
+.login-box{
+
+    width:420px;
+
+    background:
+
+    rgba(25,25,25,.92);
+
+
+    padding:45px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    border:
+
+    1px solid rgba(255,255,255,.1);
+
+
+    backdrop-filter:blur(15px);
+
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.6);
+
+
+    animation:
+
+    loginAnimation .7s ease;
+
+}
+
+
+
+@keyframes loginAnimation{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+
+}
+
+
+
+/* Logo */
+
+
+.login-logo{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.login-box h1{
+
+    font-family:'Cinzel',serif;
+
+    color:#c89b3c;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.login-box p{
+
+    color:#ccc;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* ==========================
+   Eingaben
+========================== */
+
+
+.input-group{
+
+    text-align:left;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#c89b3c;
+
+}
+
+
+
+.input-group input{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    border:none;
+
+    outline:none;
+
+    background:#333;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+
+.input-group input:focus{
+
+    box-shadow:
+
+    0 0 15px rgba(200,155,60,.5);
+
+}
+
+
+
+/* Button */
+
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#c89b3c;
+
+    color:#111;
+
+    font-weight:bold;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 10px 25px rgba(200,155,60,.4);
+
+}
+
+
+
+/* Nachricht */
+
+#loginMessage{
+
+    margin-top:20px;
+
+    min-height:20px;
+
+}
+
+
+
+/* Zurück Link */
+
+
+.back{
+
+    display:block;
+
+    margin-top:25px;
+
+    color:#c89b3c;
+
+}
+
+
+
+.back:hover{
+
+    text-decoration:underline;
+
+}
+
+
+
+/* Handy */
+
+
+@media(max-width:500px){
+
+
+    .login-box{
+
+        width:100%;
+
+        padding:30px;
+
+    }
+
+
+}
