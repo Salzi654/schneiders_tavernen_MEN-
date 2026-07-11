@@ -1,13 +1,570 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>Schneiders Taverne & Bar</title>
-<link rel="stylesheet" href="css/style.css">
+
+<meta name="description"
+content="Schneiders Taverne & Bar">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
-<h1>Schneiders Taverne & Bar</h1>
-<p>Projektstart.</p>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+🍺 Schneiders
+
+</div>
+
+<ul class="nav-links">
+
+<li>
+
+<a href="#start">
+
+Start
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#speisekarte">
+
+Speisekarte
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#about">
+
+Über Uns
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#kontakt">
+
+Kontakt
+
+</a>
+
+</li>
+
+<li>
+
+<a
+class="admin-btn"
+href="login.html">
+
+<i class="fa-solid fa-lock"></i>
+
+Admin
+
+</a>
+
+</li>
+
+</ul>
+
+<div class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+</nav>
+
+</header>
+
+<section
+id="start"
+class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>
+
+Willkommen in
+
+<span>
+
+Schneiders Taverne & Bar
+
+</span>
+
+</h1>
+
+<p>
+
+Gemütliche Atmosphäre,
+leckere Speisen
+und beste Getränke.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="#speisekarte"
+class="btn gold">
+
+Speisekarte
+
+</a>
+
+<a
+href="#kontakt"
+class="btn transparent">
+
+Reservieren
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+  <!-- ========================================= -->
+<!-- Highlights -->
+<!-- ========================================= -->
+
+<section class="highlights">
+
+    <div class="section-title">
+
+        <h2>Unsere Highlights</h2>
+
+        <p>
+            Qualität, Gemütlichkeit und guter Service
+            stehen bei uns an erster Stelle.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <i class="fa-solid fa-beer-mug-empty"></i>
+
+            <h3>Große Getränkeauswahl</h3>
+
+            <p>
+                Von Bier über Cocktails bis hin zu
+                alkoholfreien Getränken.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <h3>Frische Speisen</h3>
+
+            <p>
+                Leckere Gerichte für den kleinen
+                und großen Hunger.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-champagne-glasses"></i>
+
+            <h3>Gemütliche Abende</h3>
+
+            <p>
+                Perfekt für Freunde,
+                Familien und Feiern.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Bier des Monats -->
+<!-- ========================================= -->
+
+<section class="beer-month">
+
+    <div class="beer-box">
+
+        <h2>🍺 Bier des Monats</h2>
+
+        <h3>Hier kannst du später dein Monatsbier eintragen</h3>
+
+        <p>
+
+            Beschreibung des Bieres...
+
+        </p>
+
+        <a href="#speisekarte" class="btn gold">
+
+            Jetzt ansehen
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Speisekarte -->
+<!-- ========================================= -->
+
+<section id="speisekarte" class="menu">
+
+    <div class="section-title">
+
+        <h2>Unsere Speisekarte</h2>
+
+        <p>
+
+            Klicke auf eine Kategorie,
+            um sie zu öffnen.
+
+        </p>
+
+    </div>
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Getränk oder Speise suchen...">
+
+    </div>
+
+    <!-- Alkoholfrei -->
+
+    <details class="category" open>
+
+        <summary>
+
+            🥤 Alkoholfreie Getränke
+
+        </summary>
+
+        <div class="item">
+
+            <span>Coca Cola</span>
+
+            <span>0,00 €</span>
+
+        </div>
+
+        <div class="item">
+
+            <span>Fanta</span>
+
+            <span>0,00 €</span>
+
+        </div>
+
+        <div class="item">
+
+            <span>Sprite</span>
+
+            <span>0,00 €</span>
+
+        </div>
+
+    </details>
+
+    <!-- Spaßgetränke -->
+
+    <details class="category">
+
+        <summary>
+
+            🍹 Spaßgetränke
+
+        </summary>
+
+        <div class="item">
+
+            <span>Getränk</span>
+
+            <span>0,00 €</span>
+
+        </div>
+
+    </details>
+
+    <!-- Bier -->
+
+    <details class="category">
+
+        <summary>
+
+            🍺 Bier
+
+        </summary>
+
+        <div class="item">
+
+            <span>Pils</span>
+
+            <span>0,00 €</span>
+
+        </div>
+
+        <div class="item">
+
+            <span>Weizen</span>
+
+            <span>0,00 €</span>
+
+        </div>
+
+    </details>
+
+    <!-- Cocktails -->
+
+    <details class="category">
+
+        <summary>
+
+            🍸 Cocktails
+
+        </summary>
+
+        <div class="item">
+
+            <span>Mojito</span>
+
+            <span>0,00 €</span>
+
+        </div>
+
+    </details>
+
+      <!-- Spirituosen -->
+
+    <details class="category">
+
+        <summary>🥃 Spirituosen</summary>
+
+        <div class="item">
+            <span>Whisky</span>
+            <span>0,00 €</span>
+        </div>
+
+        <div class="item">
+            <span>Rum</span>
+            <span>0,00 €</span>
+        </div>
+
+        <div class="item">
+            <span>Vodka</span>
+            <span>0,00 €</span>
+        </div>
+
+    </details>
+
+    <!-- Wein -->
+
+    <details class="category">
+
+        <summary>🍷 Wein</summary>
+
+        <div class="item">
+            <span>Rotwein</span>
+            <span>0,00 €</span>
+        </div>
+
+        <div class="item">
+            <span>Weißwein</span>
+            <span>0,00 €</span>
+        </div>
+
+    </details>
+
+    <!-- Speisen -->
+
+    <details class="category">
+
+        <summary>🍔 Speisen</summary>
+
+        <div class="item">
+            <span>Burger</span>
+            <span>0,00 €</span>
+        </div>
+
+        <div class="item">
+            <span>Schnitzel</span>
+            <span>0,00 €</span>
+        </div>
+
+        <div class="item">
+            <span>Currywurst</span>
+            <span>0,00 €</span>
+        </div>
+
+    </details>
+
+    <!-- Snacks -->
+
+    <details class="category">
+
+        <summary>🍟 Snacks</summary>
+
+        <div class="item">
+            <span>Pommes</span>
+            <span>0,00 €</span>
+        </div>
+
+        <div class="item">
+            <span>Nachos</span>
+            <span>0,00 €</span>
+        </div>
+
+    </details>
+
+    <!-- Desserts -->
+
+    <details class="category">
+
+        <summary>🍰 Desserts</summary>
+
+        <div class="item">
+            <span>Kuchen</span>
+            <span>0,00 €</span>
+        </div>
+
+        <div class="item">
+            <span>Eis</span>
+            <span>0,00 €</span>
+        </div>
+
+    </details>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Über uns -->
+<!-- ========================================= -->
+
+<section id="about" class="about">
+
+    <div class="section-title">
+
+        <h2>Über Uns</h2>
+
+        <p>
+
+            Hier kannst du später einen Text über
+            Schneiders Taverne & Bar einfügen.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Kontakt -->
+<!-- ========================================= -->
+
+<section id="kontakt" class="contact">
+
+    <div class="section-title">
+
+        <h2>Kontakt</h2>
+
+    </div>
+
+    <div class="contact-box">
+
+        <p><strong>📍 Adresse:</strong> Musterstraße 1</p>
+
+        <p><strong>📞 Telefon:</strong> 01234 / 567890</p>
+
+        <p><strong>📧 E-Mail:</strong> info@schneiders-taverne.de</p>
+
+        <p><strong>🕒 Öffnungszeiten:</strong></p>
+
+        <ul>
+
+            <li>Montag - Donnerstag: 17:00 - 23:00 Uhr</li>
+
+            <li>Freitag: 17:00 - 02:00 Uhr</li>
+
+            <li>Samstag: 15:00 - 03:00 Uhr</li>
+
+            <li>Sonntag: 15:00 - 22:00 Uhr</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- Footer -->
+<!-- ========================================= -->
+
+<footer>
+
+    <h3>🍺 Schneiders Taverne & Bar</h3>
+
+    <p>
+
+        © 2026 Schneiders Taverne & Bar
+
+    </p>
+
+</footer>
+
+<script src="js/app.js"></script>
+
 </body>
+
 </html>
