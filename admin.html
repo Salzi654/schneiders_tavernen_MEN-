@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Admin Panel | Schneiders Taverne</title>
+
+
+<link rel="stylesheet" href="css/admin.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap"
+rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+<header class="admin-header">
+
+
+    <div class="admin-logo">
+
+        🍺 Schneiders Admin
+
+    </div>
+
+
+    <button id="logout">
+
+        Abmelden
+
+    </button>
+
+
+</header>
+
+
+
+<main class="dashboard">
+
+
+    <h1>
+
+        Admin Dashboard
+
+    </h1>
+
+
+    <p>
+
+        Verwalte hier deine Speisekarte.
+
+    </p>
+
+
+
+
+    <!-- Statistik -->
+
+
+    <section class="stats">
+
+
+        <div class="stat-box">
+
+            <h2 id="categoryCount">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Kategorien
+
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-box">
+
+            <h2 id="itemCount">
+
+                0
+
+            </h2>
+
+            <p>
+
+                Produkte
+
+            </p>
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <!-- Neues Produkt -->
+
+
+    <section class="admin-card">
+
+
+        <h2>
+
+            ➕ Produkt hinzufügen
+
+        </h2>
+
+
+
+        <input 
+        id="productName"
+        type="text"
+        placeholder="Name des Produkts">
+
+
+
+        <input 
+        id="productPrice"
+        type="number"
+        placeholder="Preis in Euro">
+
+
+
+        <select id="productCategory">
+
+
+            <option value="Alkoholfrei">
+
+                🥤 Alkoholfrei
+
+            </option>
+
+
+            <option value="Spaßgetränke">
+
+                🍹 Spaßgetränke
+
+            </option>
+
+
+            <option value="Bier">
+
+                🍺 Bier
+
+            </option>
+
+
+            <option value="Cocktails">
+
+                🍸 Cocktails
+
+            </option>
+
+
+            <option value="Spirituosen">
+
+                🥃 Spirituosen
+
+            </option>
+
+
+            <option value="Speisen">
+
+                🍔 Speisen
+
+            </option>
+
+
+        </select>
+
+
+
+        <button id="addProduct">
+
+
+            Produkt speichern
+
+
+        </button>
+
+
+
+    </section>
+
+
+
+
+
+
+    <!-- Produkte Liste -->
+
+
+    <section class="admin-card">
+
+
+        <h2>
+
+            📜 Speisekarte verwalten
+
+        </h2>
+
+
+
+        <div id="productList">
+
+
+            <!-- Produkte werden automatisch eingefügt -->
+
+
+        </div>
+
+
+    </section>
+
+
+
+</main>
+
+
+
+<script type="module" src="js/admin.js"></script>
+
+
+</body>
+
+</html>
