@@ -16,6 +16,15 @@ import {
 } from 
 "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
+import {
+
+doc,
+getDoc
+
+} from 
+"https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+
 
 
 /* ==========================
@@ -74,13 +83,54 @@ if(loginForm){
 
 
 
-            setTimeout(()=>{
+const user = auth.currentUser;
 
 
-                window.location.href="admin.html";
+const userDoc = await getDoc(
+    doc(db,"users",user.uid)
+);
 
 
-            },1000);
+
+if(userDoc.exists()){
+
+
+    const role =
+    userDoc.data().role;
+
+
+
+    if(role === "admin"){
+
+
+        window.location.href =
+        "admin.html";
+
+
+    }
+
+
+    else if(role === "personal"){
+
+
+        window.location.href =
+        "personal.html";
+
+
+    }
+
+
+    else{
+
+
+        message.innerHTML =
+        "❌ Keine Rolle vergeben";
+
+
+    }
+
+
+}
 
 
 
@@ -128,24 +178,104 @@ window.location.pathname;
 if(currentPage.includes("admin.html")){
 
 
-    onAuthStateChanged(auth,(user)=>{
+onAuthStateChanged(auth, async (user)=>{
 
 
-        if(!user){
+    if(!user){
+
+        window.location.href="login.html";
+
+        return;
+
+    }
 
 
-            window.location.href="login.html";
+
+    const userData = await getDoc(
+
+        doc(
+            db,
+            "users",
+            user.uid
+        )
+
+    );
 
 
-        }
+
+    if(
+        !userData.exists() ||
+        userData.data().role !== "admin"
+    ){
 
 
-    });
+        alert(
+            "❌ Keine Admin-Berechtigung!"
+        );
+
+
+        window.location.href =
+        "login.html";
+
+
+    }
+
+
+});
 
 
 }
 
+if(currentPage.includes("personal.html")){
 
+
+onAuthStateChanged(auth, async (user)=>{
+
+
+    if(!user){
+
+        window.location.href="login.html";
+
+        return;
+
+    }
+
+
+
+    const userData = await getDoc(
+
+        doc(
+            db,
+            "users",
+            user.uid
+        )
+
+    );
+
+
+
+    if(
+        !userData.exists() ||
+        userData.data().role !== "personal"
+    ){
+
+
+        alert(
+            "❌ Kein Personal-Zugang!"
+        );
+
+
+        window.location.href =
+        "login.html";
+
+
+    }
+
+
+});
+
+
+}
 
 
 /* ==========================
