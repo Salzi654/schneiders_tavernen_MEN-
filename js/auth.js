@@ -137,23 +137,20 @@ if(userDoc.exists()){
         }
 
 
-        catch(error){
+catch(error){
 
 
-
-            message.style.color="red";
-
-
-            message.innerHTML =
-            "❌ Benutzername oder Passwort falsch";
+message.style.color="red";
 
 
+message.innerHTML =
+"❌ " + error.code;
 
-            console.log(error);
+
+console.log(error);
 
 
-
-        }
+}
 
 
 
