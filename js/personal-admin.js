@@ -1,5 +1,11 @@
-import { db } from "./firebase.js";
+import { db, auth } from "./firebase.js";
 
+import {
+
+createUserWithEmailAndPassword
+
+} from 
+"https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 import {
 
@@ -29,6 +35,9 @@ document.getElementById("userEmail");
 
 const userRole =
 document.getElementById("userRole");
+
+const userPassword =
+document.getElementById("userPassword");
 
 
 
@@ -238,3 +247,103 @@ async function deleteUser(id){
 
 
 }
+
+saveUser.addEventListener(
+"click",
+async ()=>{
+
+
+const email =
+userEmail.value.trim();
+
+
+const password =
+userPassword.value.trim();
+
+
+const role =
+userRole.value;
+
+
+
+if(!email || !password){
+
+alert(
+"E-Mail und Passwort eingeben!"
+);
+
+return;
+
+}
+
+
+
+try{
+
+
+const result =
+await createUserWithEmailAndPassword(
+
+auth,
+
+email,
+
+password
+
+);
+
+
+
+await addDoc(
+
+collection(db,"users"),
+
+{
+
+uid:
+result.user.uid,
+
+email:email,
+
+role:role
+
+}
+
+);
+
+
+
+alert(
+"✅ Mitarbeiter erstellt!"
+);
+
+
+
+userEmail.value="";
+
+userPassword.value="";
+
+
+loadUsers();
+
+
+
+}
+
+
+catch(error){
+
+
+console.log(error);
+
+
+alert(
+"❌ Fehler beim Erstellen"
+);
+
+
+}
+
+
+
+});
