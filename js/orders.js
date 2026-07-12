@@ -605,6 +605,11 @@ async function updateTableStatus(){
 
         }
 
+        saveOrderButton.addEventListener(
+"click",
+async ()=>{
+...
+});
     );
 
 
