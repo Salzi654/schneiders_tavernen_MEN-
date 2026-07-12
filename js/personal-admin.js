@@ -333,14 +333,11 @@ loadUsers();
 
 catch(error){
 
+    console.log("Firebase Fehler:", error);
 
-console.log(error);
-
-
-alert(
-"❌ Fehler beim Erstellen"
-);
-
+    alert(
+    "❌ Fehler: " + error.message
+    );
 
 }
 
