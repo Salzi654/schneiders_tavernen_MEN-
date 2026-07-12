@@ -143,7 +143,29 @@ else{
 
 }
 
+        }
 
+
+        catch(error){
+
+
+            console.log(error);
+
+
+            message.style.color="red";
+
+
+            message.innerHTML =
+            "❌ " + error.message;
+
+
+        }
+
+
+    });
+
+
+}
 
 
 /* ==========================
@@ -186,7 +208,7 @@ onAuthStateChanged(auth, async (user)=>{
 
     if(
         !userData.exists() ||
-        userData.data().role !== "admin"
+         userData.data().role !== "admin"
     ){
 
 
