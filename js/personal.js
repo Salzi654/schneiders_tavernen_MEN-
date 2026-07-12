@@ -4,7 +4,9 @@ import { db } from "./firebase.js";
 import {
 
 collection,
-getDocs
+getDocs,
+updateDoc,
+doc
 
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
@@ -86,6 +88,153 @@ function showTables(){
         return;
 
     }
+
+
+
+    tables.forEach(table=>{
+
+
+        const div =
+        document.createElement("div");
+
+
+
+        div.className =
+        "personalTable";
+
+
+
+        div.innerHTML = `
+
+
+        <h3>
+        ${table.name}
+        </h3>
+
+
+        <p>
+        🪑 ${table.seats} Plätze
+        </p>
+
+
+        <p class="status">
+
+        ${getStatus(table.status)}
+
+        </p>
+
+
+
+        <select class="statusSelect">
+
+
+            <option value="frei">
+            🟢 Frei
+            </option>
+
+
+            <option value="reserviert">
+            🟡 Reserviert
+            </option>
+
+
+            <option value="belegt">
+            🔴 Belegt
+            </option>
+
+
+            <option value="gesperrt">
+            ⚫ Gesperrt
+            </option>
+
+
+        </select>
+
+
+
+        <button class="saveStatus">
+
+        Status speichern
+
+        </button>
+
+
+        `;
+
+
+
+        const select =
+        div.querySelector(".statusSelect");
+
+
+
+        select.value =
+        table.status || "frei";
+
+
+
+        const save =
+        div.querySelector(".saveStatus");
+
+
+
+        save.onclick = async (e)=>{
+
+
+            e.stopPropagation();
+
+
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "tables",
+                    table.id
+                ),
+
+                {
+
+                status:
+                select.value
+
+                }
+
+            );
+
+
+
+            alert(
+            "✅ Tischstatus geändert"
+            );
+
+
+            loadTables();
+
+
+        };
+
+
+
+        div.onclick = ()=>{
+
+
+            openTable(table.id);
+
+
+        };
+
+
+
+        tablesContainer.appendChild(div);
+
+
+
+    });
+
+
+
+}
 
 
 
