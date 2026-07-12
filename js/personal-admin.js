@@ -12,7 +12,8 @@ import {
 collection,
 getDocs,
 deleteDoc,
-doc
+doc,
+addDoc
 
 } from 
 "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
