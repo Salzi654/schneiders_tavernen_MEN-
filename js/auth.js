@@ -4,7 +4,7 @@
 ===================================================== */
 
 
-import { auth } from "./firebase.js";
+import { auth, db } from "./firebase.js";
 
 
 import {
