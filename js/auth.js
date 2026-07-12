@@ -139,16 +139,12 @@ if(userDoc.exists()){
 
 catch(error){
 
+    console.log("Firebase Fehler:", error);
 
-message.style.color="red";
+    message.style.color = "red";
 
-
-message.innerHTML =
-"❌ " + error.code;
-
-
-console.log(error);
-
+    message.innerHTML =
+    "❌ " + error.message;
 
 }
 
