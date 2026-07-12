@@ -89,12 +89,31 @@ console.log("Angemeldeter User:", user.uid);
 console.log("E-Mail:", user.email);
 
 
-const userDoc = await getDoc(
-    doc(
-        db,
-        "users",
-        user.uid
-    )
+const userRef = doc(
+    db,
+    "users",
+    user.uid
+);
+
+
+console.log("Suche Firestore Dokument:");
+console.log("Pfad: users/" + user.uid);
+
+
+
+const userDoc = await getDoc(userRef);
+
+
+
+console.log(
+    "Existiert:",
+    userDoc.exists()
+);
+
+
+console.log(
+    "Daten:",
+    userDoc.data()
 );
 
 
