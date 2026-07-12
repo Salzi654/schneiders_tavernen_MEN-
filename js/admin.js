@@ -212,13 +212,25 @@ function displayProducts(products){
 
                 <div class="product-info">
 
-                    <h3>${product.name}</h3>
+<h3>
 
-                    <span>
+${product.name}
 
-                    ${Number(product.price).toFixed(2)} €
+</h3>
 
-                    </span>
+
+<p class="size">
+
+${product.size ? "🥛 " + product.size : ""}
+
+</p>
+
+
+<span>
+
+${Number(product.price).toFixed(2)} €
+
+</span>
 
                 </div>
 
