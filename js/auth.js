@@ -101,6 +101,7 @@ const userDoc = await getDoc(
 
 if(userDoc.exists()){
 
+   console.log("Firestore Dokument:", userDoc);
 
     const role = userDoc.data().role;
 
