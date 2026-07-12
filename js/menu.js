@@ -132,11 +132,18 @@ async function loadMenu(){
                     </span>
 
 
-                    <span>
+<p class="size">
 
-                        ${Number(product.price).toFixed(2)} €
+${product.size ? "🥛 " + product.size : ""}
 
-                    </span>
+</p>
+
+
+<span>
+
+${Number(product.price).toFixed(2)} €
+
+</span>
 
                 `;
 
