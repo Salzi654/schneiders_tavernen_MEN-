@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#121212;
+    color:white;
+}
+
+header{
+    background:#1d1d1d;
+    padding:25px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:3px solid #c89b3c;
+}
+
+header h1{
+    font-family:'Cinzel',serif;
+    color:#c89b3c;
+}
+
+.backButton{
+    text-decoration:none;
+    background:#c89b3c;
+    color:#111;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:40px;
+}
+
+.createTable,
+.tableList{
+    background:#1d1d1d;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+}
+
+.createTable h2,
+.tableList h2{
+    color:#c89b3c;
+    margin-bottom:20px;
+}
+
+.createTable input,
+.createTable select{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    background:#2b2b2b;
+    color:white;
+    font-size:16px;
+}
+
+.createTable input:focus,
+.createTable select:focus{
+    outline:2px solid #c89b3c;
+}
+
+#saveTable{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:10px;
+    background:#c89b3c;
+    color:#111;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#saveTable:hover{
+    opacity:.9;
+}
+
+.tableCard{
+    background:#292929;
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.tableInfo h3{
+    color:#c89b3c;
+    margin-bottom:8px;
+}
+
+.status{
+    display:inline-block;
+    margin-top:8px;
+    padding:5px 12px;
+    border-radius:8px;
+    font-size:14px;
+    background:#3a3a3a;
+}
+
+.tableButtons{
+    display:flex;
+    gap:10px;
+}
+
+.editBtn,
+.deleteBtn{
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.editBtn{
+    background:#c89b3c;
+    color:#111;
+}
+
+.deleteBtn{
+    background:#a93232;
+    color:white;
+}
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    .tableCard{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .tableButtons{
+        width:100%;
+    }
+
+    .tableButtons button{
+        flex:1;
+    }
+
+    main{
+        padding:20px;
+    }
+
+}
