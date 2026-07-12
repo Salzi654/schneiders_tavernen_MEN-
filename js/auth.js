@@ -85,6 +85,9 @@ if(loginForm){
 
 const user = auth.currentUser;
 
+console.log("Angemeldeter User:", user.uid);
+console.log("E-Mail:", user.email);
+
 
 const userDoc = await getDoc(
     doc(
