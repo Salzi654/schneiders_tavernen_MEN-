@@ -87,7 +87,11 @@ const user = auth.currentUser;
 
 
 const userDoc = await getDoc(
-    doc(db,"users",user.uid)
+    doc(
+        db,
+        "users",
+        user.uid
+    )
 );
 
 
@@ -95,8 +99,7 @@ const userDoc = await getDoc(
 if(userDoc.exists()){
 
 
-    const role =
-    userDoc.data().role;
+    const role = userDoc.data().role;
 
 
 
@@ -124,33 +127,18 @@ if(userDoc.exists()){
 
 
         message.innerHTML =
-        "❌ Keine Rolle vergeben";
+        "❌ Keine Rolle gefunden";
 
 
     }
 
 
 }
+else{
 
-
-
-        }
-
-
-catch(error){
-
-    console.log("Firebase Fehler:", error);
-
-    message.style.color = "red";
 
     message.innerHTML =
-    "❌ " + error.message;
-
-}
-
-
-
-    });
+    "❌ Kein Benutzerprofil gefunden";
 
 
 }
