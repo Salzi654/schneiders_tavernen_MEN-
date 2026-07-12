@@ -28,6 +28,7 @@ import {
 ========================== */
 
 
+
 const nameInput =
 document.getElementById("productName");
 
@@ -35,6 +36,8 @@ document.getElementById("productName");
 const priceInput =
 document.getElementById("productPrice");
 
+const sizeInput =
+document.getElementById("productSize");
 
 const categoryInput =
 document.getElementById("productCategory");
@@ -281,6 +284,9 @@ saveButton.addEventListener("click", async ()=>{
 
     const category =
     categoryInput.value;
+
+   const size =
+   sizeInput.value.trim();
 
 
 
