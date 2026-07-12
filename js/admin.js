@@ -7,6 +7,7 @@
 
 import { db } from "./firebase.js";
 
+console.log("Admin gestartet");
 
 import {
 
