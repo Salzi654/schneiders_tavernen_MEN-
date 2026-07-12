@@ -312,21 +312,23 @@ saveButton.addEventListener("click", async ()=>{
         if(editID === null){
 
 
-            await addDoc(
+           await addDoc(
 
-                collection(db,"products"),
+    collection(db,"products"),
 
-                {
+    {
 
-                    name:name,
+        name:name,
 
-                    price:price,
+        price:price,
 
-                    category:category
+        category:category,
 
-                }
+        size:size
 
-            );
+    }
+
+);
 
 
         }
