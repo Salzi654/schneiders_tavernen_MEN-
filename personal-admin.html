@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Personalverwaltung | Schneiders Taverne</title>
+
+<link rel="stylesheet" href="css/personal-admin.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>👥 Personalverwaltung</h1>
+
+<a href="admin.html">
+← Dashboard
+</a>
+
+</header>
+
+
+
+<main>
+
+
+<section class="add-user">
+
+
+<h2>➕ Mitarbeiter hinzufügen</h2>
+
+
+<input 
+id="userEmail"
+placeholder="E-Mail">
+
+
+<select id="userRole">
+
+
+<option value="personal">
+👨‍🍳 Personal
+</option>
+
+
+<option value="admin">
+👑 Admin
+</option>
+
+
+</select>
+
+
+<button id="saveUser">
+
+Speichern
+
+</button>
+
+
+</section>
+
+
+
+<section>
+
+
+<h2>👥 Mitarbeiter</h2>
+
+
+<div id="usersContainer">
+
+Mitarbeiter werden geladen...
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<script type="module" src="js/personal-admin.js"></script>
+
+
+</body>
+
+</html>
