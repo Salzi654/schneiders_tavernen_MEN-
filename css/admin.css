@@ -524,3 +524,81 @@ footer{
     margin:5px 0;
 
 }
+
+/* ==========================
+   Admin Navigation
+========================== */
+
+
+.admin-links{
+
+    background:#1d1d1d;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    margin-bottom:30px;
+
+}
+
+
+.admin-links h2{
+
+    color:#c89b3c;
+
+    margin-bottom:20px;
+
+}
+
+
+.admin-buttons{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
+
+}
+
+
+
+.admin-card{
+
+    text-decoration:none;
+
+    background:#292929;
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+
+.admin-card:hover{
+
+    transform:translateY(-5px);
+
+    background:#333;
+
+}
+
+
+.admin-card span{
+
+    display:block;
+
+    margin-top:10px;
+
+}
