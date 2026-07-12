@@ -359,15 +359,15 @@ saveButton.addEventListener("click", async ()=>{
                     editID
                 ),
 
-                {
+{
+    name:name,
 
-                    name:name,
+    price:price,
 
-                    price:price,
+    category:category,
 
-                    category:category
-
-                }
+    size:size
+}
 
             );
 
