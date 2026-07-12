@@ -123,30 +123,28 @@ async function loadMenu(){
 
 
 
-                item.innerHTML = `
+item.innerHTML = `
 
-                    <span>
+<div>
 
-                        ${product.name}
+<strong>
+${product.name}
+</strong>
 
-                    </span>
-
-
-<p class="size">
+<br>
 
 ${product.size ? "🥛 " + product.size : ""}
 
-</p>
+</div>
 
 
-<span>
+<div>
 
 ${Number(product.price).toFixed(2)} €
 
-</span>
+</div>
 
-                `;
-
+`;
 
 
                 items.appendChild(item);
