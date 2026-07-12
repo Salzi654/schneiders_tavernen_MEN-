@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tischverwaltung | Schneiders Taverne & Bar</title>
+
+<link rel="stylesheet" href="css/tables.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🍽️ Tischverwaltung</h1>
+
+<a href="admin.html" class="backButton">
+← Zurück zum Dashboard
+</a>
+
+</header>
+
+<main>
+
+<section class="createTable">
+
+<h2>➕ Neuer Tisch</h2>
+
+<input
+type="text"
+id="tableName"
+placeholder="Tischname">
+
+<input
+type="number"
+id="tableSeats"
+placeholder="Sitzplätze">
+
+<input
+type="text"
+id="tableDescription"
+placeholder="Beschreibung (optional)">
+
+<select id="tableStatus">
+
+<option value="frei">🟢 Frei</option>
+
+<option value="reserviert">🟡 Reserviert</option>
+
+<option value="belegt">🔴 Belegt</option>
+
+<option value="gesperrt">⚫ Gesperrt</option>
+
+</select>
+
+<button id="saveTable">
+
+💾 Tisch speichern
+
+</button>
+
+</section>
+
+<section class="tableList">
+
+<h2>🍽️ Vorhandene Tische</h2>
+
+<div id="tablesContainer">
+
+<p>Tische werden geladen...</p>
+
+</div>
+
+</section>
+
+</main>
+
+<script type="module" src="js/tables.js"></script>
+
+</body>
+</html>
