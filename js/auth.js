@@ -104,7 +104,7 @@ if(userDoc.exists()){
 
     const role = userDoc.data().role;
 
-
+console.log("Rolle:", role);
 
     if(role === "admin"){
 
